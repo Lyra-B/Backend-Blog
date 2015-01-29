@@ -4,7 +4,7 @@ class CreateAuthors < ActiveRecord::Migration
 		create_table :authors do |t|
 			t.text :name
 			t.text :twitter
-			t.timestamps null:false
+			t.timestamps #null:false
 			t.integer :image_id
 		end
 	end

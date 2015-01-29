@@ -4,9 +4,9 @@ class CreateComments < ActiveRecord::Migration
 		create_table :comments do |t|
 			t.text :body
 			t.text :kudos
-			t.timestamps null:false
+			t.timestamps #null:false
 			t.integer :post_id
-			t.integr :author_id
+			t.integer :author_id
 		end
 	end
 
