@@ -4,7 +4,7 @@ require 'database_cleaner'
 require 'pry'
 
 # TODO - require your models here, e.g.
-require_relative '../models/user'
+require_relative '../models/author'
 require_relative '../models/comment'
 require_relative '../models/image'
 require_relative '../models/post'
@@ -20,7 +20,7 @@ require_relative '../migrations/create_tags'
 
 
 class MiniTest::Test
- def setup
+  def setup
     ActiveRecord::Base.establish_connection(
       :adapter => 'sqlite3',
       :database => 'migrations.db'
