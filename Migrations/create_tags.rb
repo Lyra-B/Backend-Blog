@@ -1,12 +1,12 @@
-class CreateTags < ActiveRecord::Migration
+# class CreateTags < ActiveRecord::Migration
 	
-	def up
-		create_table :tags do |t|
-		  t.text :name
-		end
-	end
+# 	def up
+# 		create_table :tags do |t|
+# 		  t.text :name
+# 		end
+# 	end
 
-	def down 
-		drop_table :tags
-	end
-end
+# 	def down 
+# 		drop_table :tags
+# 	end
+# end

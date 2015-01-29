@@ -20,11 +20,12 @@ require_relative '../migrations/create_tags'
 
 
 class MiniTest::Test
-  def setup
-    ActiveRecord::Base.establish_connection(
-      :adapter => 'sqlite3',
-      :database => 'migrations.db'
-    )
+ def setup
+  #   ActiveRecord::Base.establish_connection(
+  #     :adapter => 'sqlite3',
+  #     :database => 'migrations.db'
+  #   ) 
+  #replaced by yml
 
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
