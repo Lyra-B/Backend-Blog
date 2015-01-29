@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150129145818) do
+ActiveRecord::Schema.define(:version => 20150129154225) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20150129145818) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "image_id"
+    t.text     "e_mail"
+    t.text     "git_hub"
   end
 
   create_table "comments", :force => true do |t|
@@ -48,10 +50,14 @@ ActiveRecord::Schema.define(:version => 20150129145818) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "author_id"
+    t.text     "slug"
+    t.boolean  "published"
   end
 
   create_table "tags", :force => true do |t|
-    t.text "name"
+    t.text    "name"
+    t.integer "popularity"
+    t.text    "slug"
   end
 
 end
