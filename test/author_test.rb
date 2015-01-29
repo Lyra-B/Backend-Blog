@@ -5,6 +5,10 @@ class AboutActiveRecord < MiniTest::Test
   describe "Given a blog and some posts" do
 
     before do
+      # @author = Author.new(:name => "Bob Fleming",
+      #  :twitter => "@bobfleming", :image => @image)
+      # @image = Image.new(:url => "www.image.com/image")
+
       @author = Author.create(:name => "Bob Fleming",
        :twitter => "@bobfleming", :image => @image)
       @image = Image.create(:url => "www.image.com/image")
@@ -12,22 +16,22 @@ class AboutActiveRecord < MiniTest::Test
 
       @post_one = Post.create(:title => "Active Record",
        :body => "lkajfhsdhdshsa", :comment => @comment_one, :author => @author)
-      @post_one.post_tags << PostTag.create(:tag => @tag_one)
+      @post_one.post_tags << PostTag.create(:tag => @tag_two)
       @comment_one = Comment.create(:body => "Excellent Article!" )
-      @tag_one = Tag.create(:name => "General")
+      @tag_two = Tag.create(:name => "Programming")
 
       
       @post_two = Post.create(:title =>"I love programming!",
        :body => "kjasjdjkshghjuhjsdhjsd", :comment => @comment_one,
         :author => @author)
-      @post_two.post_tags << PostTag.create(:tag => @tag_one)
-      @tag_two = Tag.create(:name => "Programming")
+      @post_two.post_tags << PostTag.create(:tag => @tag_two)
       @comment_two = Comment.create(:body => "We can go together!")
 
       @post_three = Post.create(:title => "I want to go to Paris",
        :body => "lkjdjHJSDHsjshhsjakAS",
        :comment => @comment_two, :author => @author)
-  		@post_three.post_tags << PostTag.create(:tag => @tag_two)
+  		@post_three.post_tags << PostTag.create(:tag => @tag_one)
+      @tag_one = Tag.create(:name => "General")
     end
 
 
@@ -42,9 +46,10 @@ class AboutActiveRecord < MiniTest::Test
 
       it "should respond to other models" do
         assert_equal true,@author.respond_to?(:image_id)
-        # assert_equal false,@post_two.responds_to?(:tag)
-        # assert_equal true,@post_one.responds_to?(:comment)
-        # assert_equal true, 
+      end
+
+      it "should find the tags that the author has posted about" do
+        assert_equal @tag_two, @author.tags.first
       end
     end
 
