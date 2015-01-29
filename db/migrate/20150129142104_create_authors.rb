@@ -1,7 +1,6 @@
 class CreateAuthors < ActiveRecord::Migration
   
   def up
-  	
 		create_table :authors do |t|
 			t.text :name
 			t.text :twitter
