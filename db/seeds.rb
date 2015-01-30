@@ -27,7 +27,10 @@ require './models/tag'
 @tag3 = Tag.find_or_create_by_name!(:name => "Fun")
 
 # @post1.tags << @tag1
-@tag1.posts << @post1
+# @post2.tags << @tag2
+# @post2.tags << @tag3
+# @post4.tags << @tag3
+# @post5.tags << @tag1
 
 @comment1 = Comment.find_or_create_by_body!(:body => "Amazing Article!")
 @comment2 = Comment.find_or_create_by_body!(:body => "I've been there too!")
@@ -39,7 +42,7 @@ require './models/tag'
 
 @image1 = Image.find_or_create_by_url!(:url=>"https://media.licdn.com/mpr/mpr/shrink_65_65/p/4/005/0b3/1cf/1437bdc.jpg")
 
-#@image1.authors << @lyra
+@image1.author = @lyra
 
 
 

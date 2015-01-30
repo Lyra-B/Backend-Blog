@@ -4,6 +4,6 @@ class ChangeAuthorToUsers < ActiveRecord::Migration
   end
 
   def down
-  	reaname_table :users, :authors
+  	rename_table :users, :authors
   end
 end
