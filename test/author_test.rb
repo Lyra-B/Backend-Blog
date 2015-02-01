@@ -59,11 +59,10 @@ class AboutActiveRecord < MiniTest::Test
         @post.valid?
       end
       it "should validate title" do
-        @post.title = "Ruby"
-      end
-      it "should have a body" do
+        @post.errors[:title].must_include "can't be blank"
       end
       it "should have a body at least 20 characters" do
+        @post.errors[:body].must_include "can't be blank", "must have at least 20 words"
       end
     end
   end
