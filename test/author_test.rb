@@ -1,5 +1,4 @@
 require_relative 'helper'
-require 'faker'
 
 class AboutActiveRecord < MiniTest::Test
 
@@ -36,14 +35,17 @@ class AboutActiveRecord < MiniTest::Test
         @author.errors[:password].must_include "can't be blank", "is too short (minimum is 8 character)"
        end
 
-      # it "should validate age more than 21" do
-      # end
+      it "should validate age more than 21" do
+        @author.errors[:age].must_include "can't be blank", "must be greater than or equal to 21"
+      end
 
       # it "should validate dob to be before 1/1/1994 and after 1/1/1995" do
+      #   @author.errors[:dob].must_include "must be before 1/1/1994 and after 1/1/1955"
       # end
 
-      # it "should validate agreed_tc set to one or true" do
-      # end
+      it "should validate agreed_tc set to one or true" do
+        @author.errors[:agreed_tc].must_include "can't be blank", "must be true"
+      end
 
     end
 

@@ -1,3 +1,4 @@
+# require 'Date'
 class Author < ActiveRecord::Base
   has_many :posts
   has_many :comments
@@ -18,5 +19,10 @@ class Author < ActiveRecord::Base
   validates :e_mail, length: {minimum: 5} 
   validates :e_mail, format: {with: /\A^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$./, :message => "must contain @"}
 
-  validates :age, presence: true
+  validates :age, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 21}
+
+  # validates :dob, presence: true, date: after: Proc.new{Date.new(1995, 1, 1)},
+  # before: Proc.new{Date.new(1994, 1, 1)}}
+
+  validates :agreed_tc, presence: true, inclusion: { in: [true, false] }, exclusion: { in: [nil] }
 end 

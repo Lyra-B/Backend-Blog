@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150130111600) do
+ActiveRecord::Schema.define(:version => 20150201164141) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(:version => 20150130111600) do
     t.text     "e_mail"
     t.text     "git_hub"
     t.text     "password"
+    t.integer  "age"
+    t.date     "dob"
+    t.boolean  "agreed_tc"
   end
 
   create_table "comments", :force => true do |t|

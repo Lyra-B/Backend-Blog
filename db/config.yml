@@ -1,5 +1,5 @@
 development:
   adapter: sqlite3
-  database: db/validations.db
+  database: db/validations_two.db
   # pool: 5
   # timeout: 5000

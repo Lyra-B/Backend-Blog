@@ -1,3 +1,5 @@
+require_relative 'helper'
+
 FactoryGirl.define do
 
   factory(:post) do
@@ -11,6 +13,8 @@ FactoryGirl.define do
     twitter "@#{Faker::Name.name}"
     e_mail Faker::Internet.email
     password Faker::Internet.password
+    age Faker::Number.number(2)
+    #dob Faker::Date.backward(14)
   end
 
   # factory(:tag) do
