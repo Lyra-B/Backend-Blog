@@ -11,21 +11,14 @@ class AboutActiveRecord < MiniTest::Test
       end
 
       it "should validate the name" do
-        @author.name = ""
-        #@author.valid?
         @author.errors[:name].must_include "can't be blank"
       end
 
       it "should validate the name is longer than 10 characters" do
-        @author.name = "hi"
-        #@author.valid?
         @author.errors[:name].must_include "is too short (minimum is 10 characters)"
       end
 
       it "should validate twitter which starts with @" do
-        @author.twitter = "peter"
-       # @author.valid?
-        #@author.errors[:twitter][0].must_equal "it has to start with @"
         # unless @author.twitter.starts_with? '@'
         #   @author.valid?
         @author.errors[:twitter].must_include "must start with @"
@@ -33,24 +26,15 @@ class AboutActiveRecord < MiniTest::Test
       end
 
       it "should validate email" do
-        @author.e_mail = "a@b.d"
-        @author.valid?
-        @author.errors[:e_mail].must_equal []
-        # @author.errors[:email][0].must_include "@"
-        # @author.errors[:email].must_include "is too short"
+        @author.errors[:e_mail].must_equal ["can't be blank", "is too short (minimum is 5 characters)", "must contain @"]
       end
 
-      # it "should validate a password and password confirmation" do
+      it "should validate password and confirmation" do
       #  @author.password = "1234"
       #  #@author.password_confirmation = false
       #  @author.valid?
-      #  @author.errors[:password].must_include "doesn't match confirmation"
-      # end
-
-      
-
-      # it "should validate name on tag, which is one of the list" do
-      # end
+        @author.errors[:password].must_include "can't be blank", "is too short (minimum is 8 character)"
+       end
 
       # it "should validate age more than 21" do
       # end
@@ -81,7 +65,19 @@ class AboutActiveRecord < MiniTest::Test
       end
     end
   end
-  # describe "Given a blog and some posts" do
+
+  describe "Tags" do
+    describe "validations" do 
+      it "should validate name on tag, which is one of the list" do
+
+      end
+    end
+  end
+
+
+
+
+      # describe "Given a blog and some posts" do
 
 #     before do
 #       CreateAuthors.new.up

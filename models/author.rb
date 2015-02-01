@@ -8,15 +8,15 @@ class Author < ActiveRecord::Base
   validates :name, presence: true
 	validates :name, length: { minimum: 10 }
 
-  validates :password, presence: true
+  validates :password, presence: true, length: {minimum: 8}
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true
 
   validates :twitter, presence: true
   validates :twitter, format: {with: /\A^@[a-zA-Z]+/, :message => "must start with @"}
-  # validates :twitter_starts_with_at
 
-  # def twitter_starts_with_at
-  validates :e_mail, presence: true, length: {minimum: 5} 
-  #validates :e_mail, 
+  validates :e_mail, presence: true
+  validates :e_mail, length: {minimum: 5} 
+  validates :e_mail, format: {with: /\A^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$./, :message => "must contain @"}
+
+  validates :age, presence: true
 end 
