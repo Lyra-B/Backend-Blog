@@ -17,8 +17,12 @@ FactoryGirl.define do
     #dob Faker::Date.backward(14)
   end
 
+  factory(:comment) do
+    body Faker::Lorem.paragraph
+  end
+
   # factory(:tag) do
   #   name
   # end
-  
+
 end

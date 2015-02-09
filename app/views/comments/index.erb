@@ -1,0 +1,17 @@
+<% @post.comments.each do |c|%>
+  <div class = "comment">
+    <p><%= c.body %></p>
+  </div>
+<%end%>
+
+<% form_for @post, url_for(:comments, :create, :author_id => @author.id, :post_id => @post.id), :method => 'POST' do |form|%>
+
+<% field_set_tag do %>
+
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+
+  <%end%>
+
+  <%= form.submit "Post"%>
+<%end%>

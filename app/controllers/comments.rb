@@ -1,21 +1,41 @@
-BackendBlog::App.controllers :comments, :parent => :posts do
+BackendBlog::App.controllers :comments, :parent => {:authors => :posts} do
 
   get :index do
     @author = Author.find(params[:author_id])
-    @post = Post.new(:author_id => @author.id)
-    render :'posts/index'
-  end
-
-  get :show, :map => '', :with => :id do
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new(:post_id => @post.id)
+    render :'comments/index'
   end
 
   post :create, :map => '' do
+    binding.pry
+    @comment = Comment.new(params[:comment])
+    #binding.pry
+    @comment.save!
+    redirect 'comments/show'
+  end
+
+  get :edit, :map => 'comments/:id/edit' do
+    @comment = Comment.find(params[:id])
+    render :'comments/edit'
   end
 
   put :update, :map => '', :with => :id do
+    @comment = Comment.find(params[:id])
+    @comment.update(params[:comment])
+    redirect 'comments/show'
+
   end
 
   delete :delete, :map => '', :with => :id do
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect 'comments/index'
+  end
+
+  get :show, :map => '', :with => :id do
+    @comment = Comment.find(params[:id])
+    render :'comments/show'
   end
 
 

@@ -6,6 +6,10 @@ module BackendBlog
 
     enable :sessions
 
+    # get '/' do
+    #     "Hello"
+    # end
+
     ##
     # Caching support.
     #

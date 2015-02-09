@@ -1,0 +1,9 @@
+<% form_for @post, url_for(:comments, :update, :author_id => @author.id, :post_id => @post.id), :method => 'PUT' do |form|%>
+
+  <% field_set_tag do %>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  <%end%>
+
+  <%= form.submit "Post"%>
+<%end%>
