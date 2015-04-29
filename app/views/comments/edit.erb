@@ -1,4 +1,4 @@
-<% form_for @post, url_for(:comments, :update, :author_id => @author.id, :post_id => @post.id), :method => 'PUT' do |form|%>
+<% form_for @comment, url_for('', :author_id => @author.id, :post_id => @post.id, @comment.id => @comment.id, :method => 'PUT') do |form|%>
 
   <% field_set_tag do %>
     <%= form.label :body %>

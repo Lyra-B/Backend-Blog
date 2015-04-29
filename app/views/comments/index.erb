@@ -4,13 +4,11 @@
   </div>
 <%end%>
 
-<% form_for @post, url_for(:comments, :create, :author_id => @author.id, :post_id => @post.id), :method => 'POST' do |form|%>
+<% form_for @comment, url_for('', :author_id => @author.id, :post_id => @post.id), :method => 'POST' do |form|%>
 
-<% field_set_tag do %>
-
+  <% field_set_tag do %>
     <%= form.label :body %>
     <%= form.text_field :body %>
-
   <%end%>
 
   <%= form.submit "Post"%>
