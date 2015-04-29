@@ -28,8 +28,8 @@ gem 'padrino', '0.12.4'
 gem 'faker'
 gem 'factory_girl', "~> 4.0"
 gem 'twilio-ruby', "~> 3.12"
-
 gem 'database_cleaner'
+gem "rack", "< 1.6.0"
 
 gem 'pry'
 
