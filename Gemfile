@@ -33,6 +33,8 @@ gem "rack", "< 1.6.0"
 
 gem 'pry'
 
+gem 'date_validator'
+
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 
